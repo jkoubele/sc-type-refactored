@@ -4,7 +4,7 @@ Re-implementation of the [sc-type](https://github.com/IanevskiAleksandr/sc-type)
 When using the original implementation,
 I encountered few minor issues, which are addressed here:
 * For mouse data, I used [biomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) package
-to map the marker genes to corresponding mouse orthologs. Only uniquely mapped genes are kept (one-to-many mapping genes are discarded).
+to map the marker genes to the corresponding mouse orthologs. Only uniquely mapped genes are kept (one-to-many mapping genes are discarded).
 The mapping is done in the script [prepare_marker_files.R](./prepare_marker_files.R).
   * The marker genes are stored as JSON files ([human](./cell_type_markers_human.json) and [mouse](./cell_type_markers_mouse.json)).
   * The cell type names were slightly renamed, by replacing special characters which caused issues when e.g. using the cell type as name of file.
@@ -39,16 +39,16 @@ tissue <- 'Kidney'
 markers <- mouse_markers[[tissue]]
 
 # At first, we compute cell type scores for each cell
-cell_type_scores <- cell_type_scoring(seurat_object, kidney_markers)
+cell_type_scores <- cell_type_scoring(seurat_object, markers)
 
 # After that, we aggregate the scores by Seurat clusters, and predict cell type for each cluster
 clusters_cell_type <- cluster_cell_type_clasification(seurat_object, cell_type_scores)
 
-# We may store the results to metadata of the Seurat object 
+# We may store the results to the metadata of Seurat object 
 seurat_object@meta.data <- seurat_object@meta.data |> left_join(clusters_cell_type , by = "seurat_clusters")
 
 ```
 
 ## Copyright and license
-This repository is re-implementation of a code provided in [sc-type](https://github.com/IanevskiAleksandr/sc-type) GitHub repository, originally licensed under GPLv3.
+This repository is a re-implementation of a code provided in [sc-type](https://github.com/IanevskiAleksandr/sc-type) GitHub repository, originally licensed under GPLv3.
 When using, please also refer to the published [article](https://www.nature.com/articles/s41467-022-28803-w).

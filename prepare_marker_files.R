@@ -77,10 +77,7 @@ for (tissue in names(markers_original)) {
   }
   markers_mouse[[tissue]] <- list(positive_markers = positive_markers_mouse,
                                   negative_markers = negative_markers_mouse)
-
 }
 
 write(toJSON(markers_original), file = file.path(repo_folder, "cell_type_markers_human.json"))
 write(toJSON(markers_mouse), file = file.path(repo_folder, "cell_type_markers_mouse.json"))
-
-loaded_markers <- fromJSON(file = file.path(repo_folder, "cell_type_markers_mouse.json"))
