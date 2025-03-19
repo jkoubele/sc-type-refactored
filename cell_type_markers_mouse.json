@@ -1,7 +1,7 @@
 {
   "Immune system": {
     "positive_markers": {
-      "Pro_B_cells": [
+      "Pro-B_cells": [
         "Arpp21",
         "Depp1",
         "Cd24a",
@@ -17,7 +17,7 @@
         "Tcl1",
         "Vpreb3"
       ],
-      "Pre_B_cells": [
+      "Pre-B_cells": [
         "Acsm3",
         "Ccdc191",
         "Cd19",
@@ -254,7 +254,7 @@
         "Shisa5",
         "Thy1"
       ],
-      "Gamma_delta_T_cells": [
+      "Gamma_delta-T_cells": [
         "Ccr6",
         "Ccr7",
         "Il7r",
@@ -290,7 +290,7 @@
         "Ppbp",
         "Cavin2"
       ],
-      "CD8_plus_NKT_like_cells": [
+      "CD8_plus_NKT-like_cells": [
         "Il2rb",
         "Fcgr4",
         "Cd2",
@@ -310,7 +310,7 @@
         "Ncr1",
         "Zmat4"
       ],
-      "CD4_plus_NKT_like_cells": [
+      "CD4_plus_NKT-like_cells": [
         "Il2rb",
         "Fcgr4",
         "Cd2",
@@ -412,7 +412,7 @@
         "Gm5849",
         "Vcan"
       ],
-      "Non_classical_monocytes": [
+      "Non-classical_monocytes": [
         "C1qc",
         "Itgax",
         "Cd14",
@@ -484,7 +484,7 @@
         "Vcam1",
         "Vwf"
       ],
-      "Erythroid_like_and_erythroid_precursor_cells": [
+      "Erythroid-like_and_erythroid_precursor_cells": [
         "Car1",
         "Gypa",
         "Cd36",
@@ -624,8 +624,8 @@
       ]
     },
     "negative_markers": {
-      "Pro_B_cells": [],
-      "Pre_B_cells": [],
+      "Pro-B_cells": [],
+      "Pre-B_cells": [],
       "Naive_B_cells": [],
       "Memory_B_cells": [],
       "Plasma_B_cells": "Ms4a1",
@@ -655,13 +655,13 @@
         "Ccr7",
         "Sell"
       ],
-      "Gamma_delta_T_cells": [
+      "Gamma_delta-T_cells": [
         "Ccr7",
         "Sell"
       ],
       "Platelets": [],
-      "CD8_plus_NKT_like_cells": [],
-      "CD4_plus_NKT_like_cells": [],
+      "CD8_plus_NKT-like_cells": [],
+      "CD4_plus_NKT-like_cells": [],
       "Natural_killer_cells": [
         "Cd3d",
         "Cd3e",
@@ -678,12 +678,12 @@
         "Fcgr4",
         "Ncam1"
       ],
-      "Non_classical_monocytes": "Ncam1",
+      "Non-classical_monocytes": "Ncam1",
       "Intermediate_monocytes": "Ncam1",
       "Macrophages": "Ncam1",
       "Megakaryocyte": [],
       "Endothelial": [],
-      "Erythroid_like_and_erythroid_precursor_cells": [],
+      "Erythroid-like_and_erythroid_precursor_cells": [],
       "HSC_MPP_cells": [
         "Cd38",
         "Ptprc"
@@ -1027,7 +1027,7 @@
         "Tgfb1",
         "Timp1"
       ],
-      "Peri_islet_Schwann_cells": [
+      "Peri-islet_Schwann_cells": [
         "Egfl8",
         "Fign",
         "Gfra1",
@@ -1065,7 +1065,7 @@
       "Mesenchymal_cells": [],
       "Pancreatic_progenitor_cells": [],
       "Pancreatic_stellate_cells": [],
-      "Peri_islet_Schwann_cells": [],
+      "Peri-islet_Schwann_cells": [],
       "Cancer_stem_cells": []
     }
   },
@@ -1979,7 +1979,7 @@
         "Slc18a2",
         "Tnfrsf13c"
       ],
-      "Alpha_intercalated_cells_Collecting_duct_system": [
+      "Alpha-intercalated_cells_Collecting_duct_system": [
         "Aqp6",
         "Atp6v1b1",
         "Atp6v1g3",
@@ -1994,7 +1994,7 @@
         "Slc4a1",
         "Tmem213"
       ],
-      "Beta_intercalated_cells_Collecting_duct_system": [
+      "Beta-intercalated_cells_Collecting_duct_system": [
         "Ap1s3",
         "Atp6v1b1",
         "Atp6v1g3",
@@ -2217,8 +2217,8 @@
     "negative_markers": {
       "Cancer_stem_cells": [],
       "Immune_cells": [],
-      "Alpha_intercalated_cells_Collecting_duct_system": [],
-      "Beta_intercalated_cells_Collecting_duct_system": [],
+      "Alpha-intercalated_cells_Collecting_duct_system": [],
+      "Beta-intercalated_cells_Collecting_duct_system": [],
       "Loop_of_Henle_cells": [],
       "Mesangial_cells": [],
       "Podocytes": [],
@@ -4038,7 +4038,7 @@
   },
   "Hippocampus": {
     "positive_markers": {
-      "Pro_Subiculum": [
+      "Pro-_Subiculum": [
         "Adamts2",
         "Fn1",
         "Klhl1",
@@ -4121,7 +4121,7 @@
         "Slc6a11",
         "Sox9"
       ],
-      "CA1_dorsal_Principal": [
+      "CA1-dorsal_Principal": [
         "C1ql3",
         "Egfl6",
         "Fibcd1",
@@ -4139,7 +4139,7 @@
         "Syt1",
         "Wfs1"
       ],
-      "CA1_ventr_Principal": [
+      "CA1-ventr_Principal": [
         "Arhgap36",
         "C1ql3",
         "Dcn",
@@ -4165,7 +4165,7 @@
         "Syce2",
         "Vit"
       ],
-      "CA3_dorsal_Principal": [
+      "CA3-dorsal_Principal": [
         "Bok",
         "Cd109",
         "Cpne9",
@@ -4176,7 +4176,7 @@
         "Prkcd",
         "Prss35"
       ],
-      "CA3_ventr_Principal": [
+      "CA3-ventr_Principal": [
         "Bace2",
         "Bok",
         "Coch",
@@ -4185,7 +4185,7 @@
         "Nkd2",
         "Vgll3"
       ],
-      "Cajal_Retzius": [
+      "Cajal-Retzius": [
         "Cacna2d2",
         "Ebf3",
         "Eya2",
@@ -4287,7 +4287,7 @@
         "Spef2",
         "Tmem212"
       ],
-      "Fibroblast_like": [
+      "Fibroblast-like": [
         "Arhgap28",
         "Bmp6",
         "Bmp7",
@@ -4584,21 +4584,21 @@
       ]
     },
     "negative_markers": {
-      "Pro_Subiculum": [],
+      "Pro-_Subiculum": [],
       "Activated_Microglia": [],
       "Agt_Astrocytes": [],
       "Astrocytes": [],
-      "CA1_dorsal_Principal": [],
-      "CA1_ventr_Principal": [],
+      "CA1-dorsal_Principal": [],
+      "CA1-ventr_Principal": [],
       "CA2_Principal": [],
-      "CA3_dorsal_Principal": [],
-      "CA3_ventr_Principal": [],
-      "Cajal_Retzius": [],
+      "CA3-dorsal_Principal": [],
+      "CA3-ventr_Principal": [],
+      "Cajal-Retzius": [],
       "Choroid_plexus": [],
       "Dentate_Hilum_CA4": [],
       "Endothelial": [],
       "Ependymal": [],
-      "Fibroblast_like": [],
+      "Fibroblast-like": [],
       "Gfap_plus_plus_Astrocytes": [],
       "Immature_Granule_Cells_DG": [],
       "GABA": [],

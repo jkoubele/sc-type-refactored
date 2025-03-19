@@ -4,13 +4,14 @@ library(rjson)
 source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/gene_sets_prepare.R")
 source("https://raw.githubusercontent.com/IanevskiAleksandr/sc-type/master/R/sctype_score_.R")
 
-path_prefix <- "/cellfile/datapublic/jkoubele/ercc1/data/"
+# path_prefix <- "/cellfile/datapublic/jkoubele/ercc1/data/"
+path_prefix <- "/ercc1/data/"
 input_folder <- file.path(path_prefix, "clustering_output")
 output_folder <- file.path(path_prefix, "cell_type_annotation")
 
 seurat_object <- readRDS(file.path(input_folder, "seurat_object.rds"))
 
-mouse_markers <- fromJSON(file='/cellfile/datapublic/jkoubele/sc-type-refactored/cell_type_markers_mouse.json')
+mouse_markers <- fromJSON(file='/sc-type-refactored/cell_type_markers_mouse.json')
 
 
 markers_kidney <- mouse_markers$Kidney
@@ -21,7 +22,7 @@ markers_negative <- mouse_markers$Kidney$negative_markers
 
 seurat_object_subset <- subset(seurat_object, features = markers_to_use)
 
-seurat_object_subset <- subset(seurat_object_subset, cells = colnames(seurat_object_subset)[1:1000])
+# seurat_object_subset <- subset(seurat_object_subset, cells = colnames(seurat_object_subset)[1:1000])
 
 markers_expression_matrix <- as.matrix(GetAssayData(seurat_object_subset, layer = 'data', assay = 'SCT'))
 
@@ -72,23 +73,23 @@ for(cell_type in names(markers_positive)){
   }
 }
 
-es <- t(t(z_score_matrix) %*% marker_to_cell_type_matrix)
+cell_type_scoring <- t(t(z_score_matrix) %*% marker_to_cell_type_matrix)
 # Combine scores for each cell type
-es_original <- do.call(rbind, lapply(names(markers_positive), function(cell_type) { 
-  vapply(1:ncol(z_score_matrix), function(j) {
-    
-    # Get positive and negative markers
-    pos_genes <- markers_positive[[cell_type]]
-    neg_genes <- markers_negative[[cell_type]]
-    
-    # Compute scores only if genes are available
-    sum_t1 <- if (length(pos_genes) > 0) sum(z_score_matrix[pos_genes, j]) / sqrt(length(pos_genes)) else 0
-    sum_t2 <- if (length(neg_genes) > 0) sum(z_score_matrix[neg_genes, j] * -1) / sqrt(length(neg_genes)) else 0
-    
-    sum_t1 + sum_t2
-    
-  }, numeric(1))  # Ensures output is a numeric vector
-}))
+# es_original <- do.call(rbind, lapply(names(markers_positive), function(cell_type) { 
+#   vapply(1:ncol(z_score_matrix), function(j) {
+#     
+#     # Get positive and negative markers
+#     pos_genes <- markers_positive[[cell_type]]
+#     neg_genes <- markers_negative[[cell_type]]
+#     
+#     # Compute scores only if genes are available
+#     sum_t1 <- if (length(pos_genes) > 0) sum(z_score_matrix[pos_genes, j]) / sqrt(length(pos_genes)) else 0
+#     sum_t2 <- if (length(neg_genes) > 0) sum(z_score_matrix[neg_genes, j] * -1) / sqrt(length(neg_genes)) else 0
+#     
+#     sum_t1 + sum_t2
+#     
+#   }, numeric(1))  # Ensures output is a numeric vector
+# }))
 
 # # Assign row names (cell types)
 # rownames(es) <- names(markers_positive)

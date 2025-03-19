@@ -16,7 +16,7 @@ sanitize_names <- function(cell_type_names) {
     gsub("\u00A0", " ", x = _) |>
     gsub("\\s+", " ", x = _) |>
     gsub("[()]", "", x = _) |>
-    gsub("[ /\\-]", "_", x = _) |>
+    gsub("[ /]", "_", x = _) |>
     gsub("\\+", "_plus", x = _) |>
     gsub("_+", "_", x = _) |>
     gsub("α", "Alpha", x = _) |>
@@ -84,4 +84,3 @@ write(toJSON(markers_original), file = file.path(repo_folder, "cell_type_markers
 write(toJSON(markers_mouse), file = file.path(repo_folder, "cell_type_markers_mouse.json"))
 
 loaded_markers <- fromJSON(file = file.path(repo_folder, "cell_type_markers_mouse.json"))
-
