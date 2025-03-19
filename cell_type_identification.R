@@ -23,8 +23,8 @@ cell_type_scoring <- function(seurat_object, markers, assay = NULL, layer = NULL
   }
 
   # marker sensitivity
-  marker_occurrences = sort(table(unlist(markers_positive)), decreasing = T)
-  marker_sensitivity = data.frame(score_marker_sensitivity = scales::rescale(as.numeric(marker_occurrences),
+  marker_occurrences <- sort(table(unlist(markers_positive)), decreasing = T)
+  marker_sensitivity <- data.frame(score_marker_sensitivity = scales::rescale(as.numeric(marker_occurrences),
                                                                              to = c(0, 1),
                                                                              from = c(length(markers_positive), 1)),
                                   gene = names(marker_occurrences),
@@ -46,8 +46,7 @@ cell_type_scoring <- function(seurat_object, markers, assay = NULL, layer = NULL
   for (cell_type in names(markers_positive)) {
     marker_to_cell_type_matrix[markers_positive[[cell_type]], cell_type] <- 1 / sqrt(max(length(markers_positive[[cell_type]]), 1))
     if (length(markers_negative[[cell_type]]) > 0) {
-      marker_to_cell_type_matrix[markers_negative[[cell_type]], cell_type] <- marker_to_cell_type_matrix[markers_negative[[cell_type]], cell_type] -
-        1 / sqrt(max(length(markers_negative[[cell_type]]), 1))
+      marker_to_cell_type_matrix[markers_negative[[cell_type]], cell_type] <- -1 / sqrt(max(length(markers_negative[[cell_type]]), 1))
     }
   }
 
@@ -59,7 +58,7 @@ cell_type_scoring <- function(seurat_object, markers, assay = NULL, layer = NULL
 cluster_cell_type_clasification <- function(seurat_object, cell_type_scores) {
   cluster_scores <- do.call("rbind", lapply(unique(seurat_object@meta.data$seurat_clusters), function(cluster_id) {
     cluster_cell_indices <- which(seurat_object@meta.data$seurat_clusters == cluster_id)
-    cluster_cell_type_scores = sort(rowSums(cell_type_scores[, cluster_cell_indices]), decreasing = TRUE)
+    cluster_cell_type_scores <- sort(rowSums(cell_type_scores[, cluster_cell_indices]), decreasing = TRUE)
     data.frame(seurat_clusters = cluster_id,
                cell_type = names(cluster_cell_type_scores),
                scores = cluster_cell_type_scores,
