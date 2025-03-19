@@ -11,6 +11,8 @@ The mapping is done in the script [prepare_marker_files.R](./prepare_marker_file
   * Duplicate cell types were removed (as this was affecting the marker sensitivity calculation).
 * Fixed issue when genes with zero expression caused NA values in the normalization step.
 
+## Usage
+
 
 
 ## Copyright and license
