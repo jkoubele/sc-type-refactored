@@ -45,7 +45,7 @@ cell_type_scores <- cell_type_scoring(seurat_object, markers)
 clusters_cell_type <- cluster_cell_type_clasification(seurat_object, cell_type_scores)
 
 # We may store the results to the metadata of Seurat object 
-seurat_object@meta.data <- seurat_object@meta.data |> left_join(clusters_cell_type , by = "seurat_clusters")
+seurat_object$cell_type <- clusters_cell_type$cell_type[match(seurat_object$seurat_clusters, clusters_cell_type$seurat_clusters)]
 
 ```
 
